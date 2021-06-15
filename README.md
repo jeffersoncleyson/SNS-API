@@ -134,3 +134,4 @@ aws --endpoint-url=http://localhost:4566 sqs receive-message --queue-url http://
 * https://www.netsurfingzone.com/aws/spring-boot-aws-sqs-listener-example/
 * https://onexlab-io.medium.com/localstack-sns-to-sqs-47a38f33b8f4
 * https://github.com/MatthewEdge/boot-sqs-test/blob/main/docker-compose.yml
+* https://levelup.gitconnected.com/receiving-messages-from-amazon-sqs-in-a-spring-boot-application-6e8a2d7583be

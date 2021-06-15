@@ -1,5 +1,6 @@
 package br.com.sensedia.controller;
 
+import br.com.sensedia.repository.MessageRepository;
 import br.com.sensedia.service.notification.SQSService;
 import com.amazonaws.services.sqs.model.Message;
 import io.swagger.v3.oas.annotations.Operation;
@@ -18,15 +19,18 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "consumer")
-@Tag(name = "AWS SQS Consumer", description = "Endpoint for consuming messages")
-public class SQSConsumerController {
+@Tag(name = "Mongo Consumer", description = "Endpoint for consuming data save from SQS AWS")
+public class MongoConsumerController {
 
-    @Operation(summary = "Get messages", description = "Get message from SQS AWS", tags = { "SQS" })
+    @Autowired
+    private MessageRepository messageRepository;
+
+    @Operation(summary = "Get messages", description = "Get message from MongoDB", tags = { "SQS Messages" })
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Message Received"),
     })
     @GetMapping(produces = { "application/json"})
     public ResponseEntity<?> consumeMessage(){
-        return ResponseEntity.status(HttpStatus.OK).body(null);
+        return ResponseEntity.status(HttpStatus.OK).body(messageRepository.findAll());
     }
 }
