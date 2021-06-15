@@ -1,0 +1,49 @@
+server:
+  port: 9095
+  servlet:
+    context-path: /aws/v1
+
+spring:
+  profiles:
+    active:
+      - local
+  producer:
+    bootstrap-servers: localhost:9092
+    topic: topic
+    key-serializer: org.apache.kafka.common.serialization.StringSerializer
+    value-serializer: org.apache.kafka.common.serialization.StringSerializer
+  data:
+    mongodb:
+      uri: mongodb://admin:qwe123@localhost:27017/aws-messages?authSource=admin
+
+cloud:
+  aws:
+    credentials:
+      accessKey: test
+      secretKey: test
+      instanceProfile: false
+    endpoint:
+      uri: http://localhost:4566
+
+    region:
+      static: us-east-1
+      auto: false
+    stack:
+      auto: false
+
+
+
+logging:
+  level:
+    com:
+      amazonaws:
+        util:
+          EC2MetadataUtils: error
+
+sensedia:
+  application:
+    sns:
+      topic-arn: arn:aws:sns:us-east-1:000000000000:onexlab-sns
+    sqs:
+      queue-url: http://localhost:4566/000000000000/onexlab
+      pollingInSeconds: 2000
