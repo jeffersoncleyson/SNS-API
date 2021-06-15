@@ -20,10 +20,10 @@ Default region name: us-east-1
 ```
 
 #
-## Iniciar o ambiente do SNS e SQS
+## Iniciar o ambiente do SNS, SQS, Kafka e MongoDB
 #
 
-O docker-compose do ambiente se encontra disponível no seguinte **[LINK](#)**
+O docker-compose do ambiente se encontra disponível no pasta **Environment**
 
 #
 ## Sequência de comandos e respostas esperadas.
